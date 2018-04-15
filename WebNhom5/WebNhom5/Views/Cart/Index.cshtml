@@ -1,0 +1,150 @@
+﻿@model List<WebNhom5.Models.Entitis.CartItem>
+@using WebNhom5.Models.Entitis;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+
+    <script src="~/Content/js/Controllers/CartController.js"></script>
+}
+<!--start-breadcrumbs-->
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="breadcrumbs-main">
+            <ol class="breadcrumb">
+                <li><a href="/Home">Home</a></li>
+                <li class="active">Checkout</li>
+            </ol>
+        </div>
+    </div>
+</div>
+<!--end-breadcrumbs-->
+<!--start-ckeckout-->
+<div class="ckeckout">
+    <div class="container">
+        <div class="ckeck-top heading">
+            <h2>CHECKOUT</h2>
+        </div>
+
+
+        <div class="ckeckout-top">
+            <div class="cart-items">
+
+
+                @*<script>
+                    $(document).ready(function(c) {
+                                        $('.close1').on('click', function(c){
+                                            $('.cart-header').fadeOut('slow', function(c){
+                                                $('.cart-header').remove();
+                                            });
+                                            });
+                                        });
+                                    </script>
+                                    <script>
+                    $(document).ready(function(c) {
+                                        $('.close2').on('click', function(c){
+                                            $('.cart-header1').fadeOut('slow', function(c){
+                                                $('.cart-header1').remove();
+                                            });
+                                            });
+                                        });
+                                    </script>
+                                    <script>
+                    $(document).ready(function(c) {
+                                        $('.close3').on('click', function(c){
+                                            $('.cart-header2').fadeOut('slow', function(c){
+                                                $('.cart-header2').remove();
+                                            });
+                                            });
+                                        });
+                                    </script>*@
+
+                @*<div class="in-check">
+                                        <ul class="unit">
+                                            <li><span>Item</span></li>
+                                            <li><span>Product Name</span></li>
+                                            <li><span>Unit Price</span></li>
+                                            <li><span>Quantity</span></li>
+                                            <li><span>Total</span></li>
+                                            <li> </li>
+                                            <div class="clearfix"> </div>
+                                        </ul>
+                                        @foreach (var item in Model) {
+
+                                          <ul class="cart-header">
+                                            <div class="close1"> </div>
+                                            <li class="ring-in">
+                                                <a href="/DetailProduct"><img src="/Content/images/@item.product.image" class="img-responsive" alt=""></a>
+                                            </li>
+                                            <li><span class="name">@item.product.name</span></li>
+                                            <li><span class="cost">$ @item.product.new_price</span></li>
+                                            <li>
+                                                <span>Free</span>
+                                                <p>Delivered in 2-3 business days</p>
+                                            </li>
+
+                                            <div class="clearfix"> </div>
+                                             </ul>
+                    }
+
+
+
+
+                                    </div>*@
+
+                <div class="content">
+                    <div class="section group">
+                        @if (Model.Count > 0)
+                        {
+                            <h3>My Shopping Bag (@Model.Count)</h3>
+                            <p></p>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <td>id</td>
+                                        <td>Name</td>
+                                        <td>Image</td>
+                                        <td>Quantity</td>
+                                        <td>Price</td>
+                                        <td>Total price</td>
+                                        <td></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.product.id</td>
+                                            <td>@item.product.name</td>
+                                            <td><img src="~/Content/images/@item.product.image" width="100" /></td>
+                                            <td><input type="text" class="txtQuantity" data-id="@item.product.id" value="@item.Quantity" /></td>
+                                            <td>$ @item.product.new_price.GetValueOrDefault(0).ToString("N0")</td>
+                                            <td>$ @((item.product.new_price.GetValueOrDefault(0) * item.Quantity).ToString("N0"))</td>
+
+                                            <td><a href="#" data-id="@item.product.id" class="btn-delete">Delete</a></td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+
+
+                            <button id="btnContinue" class="btn">Continue</button>
+                            <button id="btnUpdate" class="btn">update</button>
+                            <button id="btnDeleteAll" class="btn">Delete All</button>
+                            <button id="btnPayment" class="btn">Paymen</button>
+                        }
+                        else
+                        {
+                            <span class="alert alert-danger">There are no products in your cart</span>
+                        }
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--end-ckeckout-->

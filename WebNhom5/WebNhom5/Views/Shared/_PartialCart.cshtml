@@ -1,0 +1,15 @@
+﻿@model List<WebNhom5.Models.Entitis.CartItem>
+@using WebNhom5.Models.Entitis;
+
+<div class="col-md-6 top-header-left">
+    <div class="cart box_1">
+        <a href="/Cart">
+            <div class="total">
+                <span >$ @(Model.Sum(x=>x.product.new_price*x.Quantity))</span>
+            </div>
+            <img src="~/Content/images/cart-1.png" alt="" />
+        </a>
+        <p>@Model.Count Product</p>
+        <div class="clearfix"> </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿@using WebNhom5.Models.Entitis;
+
+<div class="form_row">
+    <label>Brand:</label>
+    <select class="form_select" name="id_brand">
+        @foreach (var item in ViewBag.Brand)
+         {
+        <option value="@item.id">@item.name</option>
+        }
+
+    </select>
+</div>
+<div class="form_row">
+    <label>Stype:</label>
+    <select class="form_select" name="id_stype">
+        @foreach (var item in ViewBag.Stype)
+        {
+        <option value="@item.id">@item.name</option>
+        }
+    </select>
+</div>
+<div class="form_row">
+    <label>Color:</label>
+    <select class="form_select" name="id_color">
+        @foreach (var item in ViewBag.Color)
+         {
+        <option value="@item.id">@item.name</option>
+        }
+    </select>
+</div>

@@ -1,0 +1,58 @@
+﻿@using WebNhom5.Models.Entitis;
+@model PagedList.IPagedList<Product>
+@using PagedList;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--start-breadcrumbs-->
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="breadcrumbs-main">
+            <ol class="breadcrumb">
+                <li><a href="/Home">Home</a></li>
+                <li class="active">New Products</li>
+            </ol>
+        </div>
+    </div>
+</div>
+<!--end-breadcrumbs-->
+<!--prdt-starts-->
+<div class="prdt">
+    <div class="container">
+        <div class="prdt-top">
+            <div class="col-md-9 prdt-left">
+                @{var group = Model.ToList().GroupBy(r => Model.ToList().IndexOf(r) / 3).ToList();
+                    foreach (var parent in group)
+                    {
+                        <div class="product-one">
+                            @foreach (Product item in parent)
+                            {
+                                <div class="col-md-4 product-left p-left">
+                                    <div class="product-main simpleCart_shelfItem">
+                                        <a href="/DetailProduct/ChiTiet/@item.id" class="mask"><img class="img-responsive zoom-img" src="/Content/images/@item.image" alt="" /></a>
+                                        <div class="product-bottom">
+                                            <h3>@item.name</h3>
+                                            <p>@item.Brand.name</p>
+                                            <h4><a class="item_add" href="/Add-product?id=@item.id&quantity=1"><i></i></a> <span class=" item_price">$ @item.new_price</span></h4>
+                                        </div>
+                                        <div class="srch srch1">
+                                            <span>-50%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            <div class="clearfix"></div>
+                        </div>
+                    }
+                }
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+            </div>
+            @{ Html.RenderAction("SideBar", "LayOut");}
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!--product-end-->

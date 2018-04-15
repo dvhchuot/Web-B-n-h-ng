@@ -1,0 +1,110 @@
+﻿@model WebNhom5.Models.Entitis.Product
+@using WebNhom5.Models.Entitis;
+@{
+    ViewBag.Title = "EditProducts";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<ul id="tabsmenu" class="tabsmenu">
+    <li class="active"><a href="#tab1">Edit Product</a></li>
+
+
+</ul>
+
+<div id="tab1" class="tabcontent">
+    @*  <h3>Add products</h3>*@
+    @*<h3>Tab one title</h3>*@
+    <form method="post">
+        <div class="form">
+            
+            <div class="form_row">
+                <label>Id:</label>
+                <input type="text" class="form_input" name="id" value="@Model.id" />
+            </div>
+
+            <div class="form_row">
+                <label>Name:</label>
+                <input type="text" class="form_input" name="name" value="@Model.name" />
+            </div>
+            <div class="form_row">
+                <label>OldPrice:</label>
+                <input type="text" class="form_input" name="ole_price" value="@Model.ole_price" />
+            </div>
+            <div class="form_row">
+                <label>NewPrice:</label>
+                <input type="text" class="form_input" name="new_price" value="@Model.new_price" />
+            </div>
+            <div class="form_row">
+                <label>Date:</label>
+                <input type="text" class="form_input" name="date_make" value="@Model.date_make"/>
+            </div>
+
+            <div class="form_row">
+                <label>Brand:</label>
+                <select class="form_select" name="id_brand">
+                    
+                    @foreach (var item in ViewBag.Brand)
+                     {
+                        if (@item.id == @Model.Brand.id)
+                        {
+                                <option selected="selected" value="@item.id">@item.name</option>
+                        }
+                        else
+                        {
+                                        <option value="@item.id">@item.name</option>
+                        }
+                     }
+
+                </select>
+            </div>
+            <div class="form_row">
+                <label>Stype:</label>
+                <select class="form_select" name="id_stype">
+                    
+                    @foreach (var item in ViewBag.Stype)
+                      {
+                        if (@item.id == @Model.stype.id)
+                        {
+                            <option selected="selected" value="@item.id">@item.name</option>
+                        }
+                        else
+                        {
+                            <option value="@item.id">@item.name</option>
+                        }
+
+                    }
+                </select>
+            </div>
+            <div class="form_row">
+                <label>Color:</label>
+                <select class="form_select" name="id_color">
+                    
+                    @foreach (var item in ViewBag.Color)
+
+                    {
+                        if (@item.id == @Model.Color.id)
+                        {
+                               <option selected="selected" value="@item.id">@item.name</option>
+                        }
+                        else
+                        {
+                               <option value="@item.id">@item.name</option>
+                        }
+                    }
+                </select>
+            </div>
+
+            <div class="form_row">
+                <label>Infor:</label>
+                <textarea class="form_textarea" name="INFO" >@Model.info</textarea> 
+            </div>
+            <div class="form_row">
+                <input type="submit" class="form_submit" value="Submit" />
+            </div>
+            <div class="clear"></div>
+        </div>
+    </form>
+</div>
+
+
+
