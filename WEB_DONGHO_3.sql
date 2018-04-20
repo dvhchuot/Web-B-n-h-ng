@@ -3,37 +3,37 @@ CREATE DATABASE WEB_DONGHO
 GO
 USE WEB_DONGHO
 GO
-CREATE TABLE Account
-(
-name VARCHAR(50) PRIMARY KEY,
-password VARCHAR(50)
-)
+--CREATE TABLE Account
+--(
+--name VARCHAR(50) PRIMARY KEY,
+--password VARCHAR(50)
+--)
 
-GO
-CREATE TABLE Direction
-(
-id CHAR(10) PRIMARY KEY,
-name NVARCHAR(50),
-address NVARCHAR(50),
-phone CHAR(11),
-identification CHAR(11),
-email VARCHAR(20),
-account VARCHAR(50) REFERENCES dbo.Account(name)
-)
-GO
-CREATE TABLE Customer
-(
-id CHAR(10) PRIMARY KEY,
-name NVARCHAR(50),
-address_ship NVARCHAR(50),
-phone CHAR(11),
-identification CHAR(11),
-email VARCHAR(20),
-age CHAR(3),
-sex BIT,
-account VARCHAR(50) REFERENCES dbo.Account(name)
+--GO
+--CREATE TABLE Direction
+--(
+--id CHAR(10) PRIMARY KEY,
+--name NVARCHAR(50),
+--address NVARCHAR(50),
+--phone CHAR(11),
+--identification CHAR(11),
+--email VARCHAR(20),
+--account VARCHAR(50) REFERENCES dbo.Account(name)
+--)
+--GO
+--CREATE TABLE Customer
+--(
+--id CHAR(10) PRIMARY KEY,
+--name NVARCHAR(50),
+--address_ship NVARCHAR(50),
+--phone CHAR(11),
+--identification CHAR(11),
+--email VARCHAR(20),
+--age CHAR(3),
+--sex BIT,
+--account VARCHAR(50) REFERENCES dbo.Account(name)
 
-)
+--)
 GO
 CREATE TABLE Bill
 (
@@ -121,25 +121,7 @@ INSERT dbo.Color VALUES  ( 'STT004',N'YELLOW')
   
 --Dữ liệu bảng Images
 
-GO
-INSERT dbo.Account VALUES  ( 'KH001', 'QWE1243252' )
-INSERT dbo.Account VALUES  ( 'KH002', 'MJYHGGGGJ6' )
-INSERT dbo.Account VALUES  ( 'KH003', 'MJYSDGGGGJ6' )
-INSERT dbo.Account VALUES  ( 'KH004', 'SDGJYHGGGGJ6' )
-INSERT dbo.Account VALUES  ( 'KH005', 'MJ23HGGGGJ6' )
-INSERT dbo.Account VALUES  ( 'QL001', '5656HGFNG' )
-INSERT dbo.Account VALUES  ( 'QL002', 'CXGR4666666R' )
-INSERT dbo.Account VALUES  ( 'QL003', '2432++==' )
-INSERT dbo.Account VALUES  ( 'QL004', '243A2++==' )
-INSERT dbo.Account VALUES  ( 'QL005', '243D2++==' )
--- Dữ liệu bảng khách hàng
-GO
 
-INSERT dbo.Customer VALUES  ( 'KH001' , N'BÙI KHẮC TUẤN' ,N'NGHỆ AN' ,'0123456789' ,'12354656754' ,'TUAN@GMAIL.COM' ,'20' ,1 ,'KH001')
-INSERT dbo.Customer VALUES  ( 'KH002' , N'LÊ THỊ HUYỀN' ,N'NGHỆ AN' ,'0123423789' ,'15324656754' ,'HUYEN@GMAIL.COM' ,'20' ,0 ,'KH002')
-INSERT dbo.Customer VALUES  ( 'KH003' , N'BÙI ĐĂNG CƯỜNG' ,N'BẮC GIANG' ,'0167456789' ,'89854656754' ,'CUONG@GMAIL.COM' ,'20' ,1 ,'KH003')
-INSERT dbo.Customer VALUES  ( 'KH004' , N'VŨ NGỌC HÀ' ,N'HÀ NAM' ,'0187456789' ,'87654656754' ,'HA@GMAIL.COM' ,'20' ,0 ,'KH004')
-INSERT dbo.Customer VALUES  ( 'KH005' , N'ĐẶNG VĂN HÙNG' ,N'THÁI BÌNH' ,'0123123789' ,'12354321344' ,'HUNG@GMAIL.COM' ,'20' ,1 ,'KH005')
 
 --Dữ liệu bảng hóa đơn--
 
@@ -182,9 +164,103 @@ INSERT dbo.Sale VALUES  ( 'GG003','SP003',N'30%')
 INSERT dbo.Sale VALUES  ( 'GG004','SP004',N'20%')
 INSERT dbo.Sale VALUES  ( 'GG005','SP005',N'15%')
 --Dữ liệu bảng admin
+
+
+
+--GO
+--INSERT dbo.Direction VALUES  ( 'QL001' , N'BÙI KHẮC TUẤN' ,N'NGHỆ AN' ,'0123456789' ,'12354656754' ,'TUAN@GMAIL.COM' ,'QL001')
+--INSERT dbo.Direction VALUES  ( 'QL002' , N'LÊ THỊ HUYỀN' ,N'NGHỆ AN' ,'0123423789' ,'15324656754' ,'HUYEN@GMAIL.COM' ,'QL002')
+--INSERT dbo.Direction VALUES  ( 'QL003' , N'BÙI ĐĂNG CƯỜNG' ,N'BẮC GIANG' ,'0167456789' ,'89854656754' ,'CUONG@GMAIL.COM' ,'QL003')
+--INSERT dbo.Direction VALUES  ( 'QL004' , N'VŨ NGỌC HÀ' ,N'HÀ NAM' ,'0187456789' ,'87654656754' ,'HA@GMAIL.COM' ,'QL004')
+--INSERT dbo.Direction VALUES  ( 'QL005' , N'ĐẶNG VĂN HÙNG' ,N'THÁI BÌNH' ,'0123123789' ,'12354321344' ,'HUNG@GMAIL.COM' ,'QL005')
+
+--GO
+--INSERT dbo.Account VALUES  ( 'KH001', 'QWE1243252' )
+--INSERT dbo.Account VALUES  ( 'KH002', 'MJYHGGGGJ6' )
+--INSERT dbo.Account VALUES  ( 'KH003', 'MJYSDGGGGJ6' )
+--INSERT dbo.Account VALUES  ( 'KH004', 'SDGJYHGGGGJ6' )
+--INSERT dbo.Account VALUES  ( 'KH005', 'MJ23HGGGGJ6' )
+--INSERT dbo.Account VALUES  ( 'QL001', '5656HGFNG' )
+--INSERT dbo.Account VALUES  ( 'QL002', 'CXGR4666666R' )
+--INSERT dbo.Account VALUES  ( 'QL003', '2432++==' )
+--INSERT dbo.Account VALUES  ( 'QL004', '243A2++==' )
+--INSERT dbo.Account VALUES  ( 'QL005', '243D2++==' )
+---- Dữ liệu bảng khách hàng
+--GO
+
+--INSERT dbo.Customer VALUES  ( 'KH001' , N'BÙI KHẮC TUẤN' ,N'NGHỆ AN' ,'0123456789' ,'12354656754' ,'TUAN@GMAIL.COM' ,'20' ,1 ,'KH001')
+--INSERT dbo.Customer VALUES  ( 'KH002' , N'LÊ THỊ HUYỀN' ,N'NGHỆ AN' ,'0123423789' ,'15324656754' ,'HUYEN@GMAIL.COM' ,'20' ,0 ,'KH002')
+--INSERT dbo.Customer VALUES  ( 'KH003' , N'BÙI ĐĂNG CƯỜNG' ,N'BẮC GIANG' ,'0167456789' ,'89854656754' ,'CUONG@GMAIL.COM' ,'20' ,1 ,'KH003')
+--INSERT dbo.Customer VALUES  ( 'KH004' , N'VŨ NGỌC HÀ' ,N'HÀ NAM' ,'0187456789' ,'87654656754' ,'HA@GMAIL.COM' ,'20' ,0 ,'KH004')
+--INSERT dbo.Customer VALUES  ( 'KH005' , N'ĐẶNG VĂN HÙNG' ,N'THÁI BÌNH' ,'0123123789' ,'12354321344' ,'HUNG@GMAIL.COM' ,'20' ,1 ,'KH005')
+
+
 GO
-INSERT dbo.Direction VALUES  ( 'QL001' , N'BÙI KHẮC TUẤN' ,N'NGHỆ AN' ,'0123456789' ,'12354656754' ,'TUAN@GMAIL.COM' ,'QL001')
-INSERT dbo.Direction VALUES  ( 'QL002' , N'LÊ THỊ HUYỀN' ,N'NGHỆ AN' ,'0123423789' ,'15324656754' ,'HUYEN@GMAIL.COM' ,'QL002')
-INSERT dbo.Direction VALUES  ( 'QL003' , N'BÙI ĐĂNG CƯỜNG' ,N'BẮC GIANG' ,'0167456789' ,'89854656754' ,'CUONG@GMAIL.COM' ,'QL003')
-INSERT dbo.Direction VALUES  ( 'QL004' , N'VŨ NGỌC HÀ' ,N'HÀ NAM' ,'0187456789' ,'87654656754' ,'HA@GMAIL.COM' ,'QL004')
-INSERT dbo.Direction VALUES  ( 'QL005' , N'ĐẶNG VĂN HÙNG' ,N'THÁI BÌNH' ,'0123123789' ,'12354321344' ,'HUNG@GMAIL.COM' ,'QL005')
+ --DROP TABLE dbo.Direction
+ --DROP TABLE dbo.Customer
+ --DROP TABLE dbo.Account
+ --GO
+ --DROP TABLE users
+ --DROP TABLE Roles
+ --DROP TABLE Credit
+ --DROP TABLE GroupUser
+ CREATE TABLE GroupUser
+ (
+	Id VARCHAR(10) PRIMARY KEY,
+	name VARCHAR(10)
+ )
+ CREATE TABLE UserLogin
+(
+account VARCHAR(50) PRIMARY KEY,
+groupId VARCHAR(10) REFERENCES dbo.GroupUser(Id),
+password VARCHAR(50),
+name NVARCHAR(50),
+address_ship NVARCHAR(50),
+phone CHAR(11),
+identification CHAR(11),
+email VARCHAR(20),
+age CHAR(3),
+sex nchar(3)
+)
+
+CREATE TABLE Roles
+(
+	Id VARCHAR(10) PRIMARY KEY,
+	name VARCHAR(10)
+)
+
+CREATE TABLE Credit
+(
+	id INT IDENTITY PRIMARY KEY,
+	Id_Role VARCHAR(10) REFERENCES dbo.Roles(Id),
+	Id_group VARCHAR(10) REFERENCES dbo.GroupUser(Id)
+	
+)
+
+--DELETE dbo.Users
+--DELETE dbo.Roles 
+--DELETE dbo.GroupUser
+--DELETE dbo.Credit
+INSERT dbo.GroupUser VALUES  ( 'ADMIN',  'ADMIN'  )
+INSERT dbo.GroupUser VALUES  ( 'MOD',  'MOD'  )
+INSERT dbo.GroupUser VALUES  ( 'MEMBER',  'MEMBER'  )
+INSERT dbo.GroupUser VALUES  ( 'MEMBER2',  'MEMBER'  )
+
+GO
+INSERT dbo.UserLogin VALUES  ( 'admin' , 'ADMIN' ,'admin' ,N'BÙI KHẮC TUẤN' ,  N'NGHỆ AN' , '0123456789' , '12354656754' ,  'TUAN@GMAIL.COM' , '20' ,  N'Nam'   )
+INSERT dbo.UserLogin VALUES  ( 'mod' , 'MOD' ,'mod' ,N'BÙI KHẮC TUẤN' ,  N'NGHỆ AN' , '0123456789' , '12354656754' ,  'TUAN@GMAIL.COM' , '20' ,  N'Nam'   )
+INSERT dbo.UserLogin VALUES  ( 'member' , 'MEMBER' ,'member' ,N'BÙI KHẮC TUẤN' ,  N'NGHỆ AN' , '0123456789' , '12354656754' ,  'TUAN@GMAIL.COM' , '20' ,  N'Nam'   )
+
+GO
+INSERT dbo.Roles VALUES  ( 'VIEW', 'VIEW' )
+INSERT dbo.Roles VALUES  ( 'ADD', 'ADD' )
+INSERT dbo.Roles VALUES  ( 'EDIT', 'EDIT' )
+INSERT dbo.Roles VALUES  ( 'DEL', 'DEL' )
+
+INSERT dbo.Credit VALUES  ( 'VIEW',  'ADMIN'   )
+INSERT dbo.Credit VALUES  ( 'ADD',  'ADMIN'   )
+INSERT dbo.Credit VALUES  ( 'EDIT',  'ADMIN'   )
+INSERT dbo.Credit VALUES  ( 'DEL',  'ADMIN'   )
+INSERT dbo.Credit VALUES  ( 'VIEW',  'MOD'   )
+INSERT dbo.Credit VALUES  ( 'ADD',  'MOD'   )
+

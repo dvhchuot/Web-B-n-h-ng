@@ -12,16 +12,22 @@ namespace WebNhom5.Areas.Admin.Controllers
         // GET: Admin/ProductsAdmin
         public ActionResult index(int page=1, int pageSize=10)
         {
-            ProductDao productDao = new ProductDao();
+            if (Session[CommonConstants.LoginSession] == null) return RedirectToAction("Index", "LoginAdmin");
+            else
+            {
+                ProductDao productDao = new ProductDao();
 
-            return View( productDao.getListPaging(page, pageSize));
+                return View(productDao.getListPaging(page, pageSize));
+            }
             
         }
+        [AdminCredit(RoleID ="ADD")]
         public ActionResult AddProducts()
         {
             return View();
 
         }
+        [AdminCredit(RoleID = "EDIT")]
         public ActionResult EditProducts(string id)
         {
             BrandDao brandDao = new BrandDao();
@@ -35,6 +41,7 @@ namespace WebNhom5.Areas.Admin.Controllers
 
         }
         [HttpPost]
+        [AdminCredit(RoleID = "ADD")]
         public ActionResult AddProducts(Product sp)
         {
             try
@@ -56,6 +63,7 @@ namespace WebNhom5.Areas.Admin.Controllers
             }
         }
         [HttpPost]
+        [AdminCredit(RoleID = "EDIT")]
         public ActionResult EditProducts(Product sp)
         {
             try
@@ -76,7 +84,7 @@ namespace WebNhom5.Areas.Admin.Controllers
                 return View();
             }
         }
-        
+        [AdminCredit(RoleID = "DEL")]
         public ActionResult DeleteProducts(string id)
         {
             var model = new ProductDao().getByID(id);
@@ -96,6 +104,7 @@ namespace WebNhom5.Areas.Admin.Controllers
         // POST: /Admin/DanhMucAd/Delete/5
 
         [HttpPost]
+        [AdminCredit(RoleID = "DEL")]
         public ActionResult DeleteProducts(Product model)
         {
             try

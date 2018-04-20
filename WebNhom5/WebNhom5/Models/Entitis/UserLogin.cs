@@ -6,11 +6,18 @@ namespace WebNhom5.Models.Entitis
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Customer")]
-    public partial class Customer
+    [Table("UserLogin")]
+    public partial class UserLogin
     {
+        [Key]
+        [StringLength(50)]
+        public string account { get; set; }
+
         [StringLength(10)]
-        public string id { get; set; }
+        public string groupId { get; set; }
+
+        [StringLength(50)]
+        public string password { get; set; }
 
         [StringLength(50)]
         public string name { get; set; }
@@ -30,11 +37,9 @@ namespace WebNhom5.Models.Entitis
         [StringLength(3)]
         public string age { get; set; }
 
-        public bool? sex { get; set; }
+        [StringLength(3)]
+        public string sex { get; set; }
 
-        [StringLength(50)]
-        public string account { get; set; }
-
-        public virtual Account Account1 { get; set; }
+        public virtual GroupUser GroupUser { get; set; }
     }
 }

@@ -63,7 +63,7 @@ namespace WebNhom5.Controllers
                 //Gán vào session
                 Session[CommonConstants.CartSession] = list;
             }
-            return RedirectToAction("Index");
+            return Redirect("/Home");
         }
         public JsonResult DeleteAll()
         {

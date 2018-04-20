@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebNhom5.Models.Dao;
+using WebNhom5.Models.Entitis;
+
 namespace WebNhom5.Areas.Admin.Controllers
 {
     public class IndexAdminController : Controller
@@ -11,10 +13,12 @@ namespace WebNhom5.Areas.Admin.Controllers
         // GET: Admin/Index
         public ActionResult Index()
         {
+            
+                ProductDao productDao = new ProductDao();
 
-            ProductDao productDao = new ProductDao();
-
-            return PartialView("_PartialTable", productDao.getListPaging(1,10));
+                return PartialView("_PartialTable", productDao.getListPaging(1, 10));
+            
+            
             
         }
         public ActionResult Combobox()

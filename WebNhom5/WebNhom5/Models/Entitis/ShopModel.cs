@@ -12,37 +12,21 @@ namespace WebNhom5.Models.Entitis
         {
         }
 
-        public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Bill> Bills { get; set; }
         public virtual DbSet<Bill_Details> Bill_Details { get; set; }
         public virtual DbSet<Brand> Brands { get; set; }
         public virtual DbSet<Color> Colors { get; set; }
-        public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<Direction> Directions { get; set; }
+        public virtual DbSet<Credit> Credits { get; set; }
+        public virtual DbSet<GroupUser> GroupUsers { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Sale> Sales { get; set; }
         public virtual DbSet<stype> stypes { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<UserLogin> UserLogins { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Account>()
-                .Property(e => e.name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Account>()
-                .Property(e => e.password)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Account>()
-                .HasMany(e => e.Customers)
-                .WithOptional(e => e.Account1)
-                .HasForeignKey(e => e.account);
-
-            modelBuilder.Entity<Account>()
-                .HasMany(e => e.Directions)
-                .WithOptional(e => e.Account1)
-                .HasForeignKey(e => e.account);
-
             modelBuilder.Entity<Bill>()
                 .Property(e => e.phone)
                 .IsFixedLength()
@@ -78,56 +62,31 @@ namespace WebNhom5.Models.Entitis
                 .WithOptional(e => e.Color)
                 .HasForeignKey(e => e.id_color);
 
-            modelBuilder.Entity<Customer>()
-                .Property(e => e.id)
-                .IsFixedLength()
+            modelBuilder.Entity<Credit>()
+                .Property(e => e.Id_Role)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Customer>()
-                .Property(e => e.phone)
-                .IsFixedLength()
+            modelBuilder.Entity<Credit>()
+                .Property(e => e.Id_group)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Customer>()
-                .Property(e => e.identification)
-                .IsFixedLength()
+            modelBuilder.Entity<GroupUser>()
+                .Property(e => e.Id)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Customer>()
-                .Property(e => e.email)
+            modelBuilder.Entity<GroupUser>()
+                .Property(e => e.name)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Customer>()
-                .Property(e => e.age)
-                .IsFixedLength()
-                .IsUnicode(false);
+            modelBuilder.Entity<GroupUser>()
+                .HasMany(e => e.Credits)
+                .WithOptional(e => e.GroupUser)
+                .HasForeignKey(e => e.Id_group);
 
-            modelBuilder.Entity<Customer>()
-                .Property(e => e.account)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Direction>()
-                .Property(e => e.id)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Direction>()
-                .Property(e => e.phone)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Direction>()
-                .Property(e => e.identification)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Direction>()
-                .Property(e => e.email)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Direction>()
-                .Property(e => e.account)
-                .IsUnicode(false);
+            modelBuilder.Entity<GroupUser>()
+                .HasMany(e => e.UserLogins)
+                .WithOptional(e => e.GroupUser)
+                .HasForeignKey(e => e.groupId);
 
             modelBuilder.Entity<Product>()
                 .Property(e => e.id)
@@ -163,6 +122,19 @@ namespace WebNhom5.Models.Entitis
                 .WithOptional(e => e.Product)
                 .HasForeignKey(e => e.id_Products);
 
+            modelBuilder.Entity<Role>()
+                .Property(e => e.Id)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Role>()
+                .Property(e => e.name)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Role>()
+                .HasMany(e => e.Credits)
+                .WithOptional(e => e.Role)
+                .HasForeignKey(e => e.Id_Role);
+
             modelBuilder.Entity<Sale>()
                 .Property(e => e.id)
                 .IsFixedLength()
@@ -187,6 +159,41 @@ namespace WebNhom5.Models.Entitis
                 .HasMany(e => e.Products)
                 .WithOptional(e => e.stype)
                 .HasForeignKey(e => e.id_stype);
+
+            modelBuilder.Entity<UserLogin>()
+                .Property(e => e.account)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<UserLogin>()
+                .Property(e => e.groupId)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<UserLogin>()
+                .Property(e => e.password)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<UserLogin>()
+                .Property(e => e.phone)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<UserLogin>()
+                .Property(e => e.identification)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<UserLogin>()
+                .Property(e => e.email)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<UserLogin>()
+                .Property(e => e.age)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<UserLogin>()
+                .Property(e => e.sex)
+                .IsFixedLength();
         }
     }
 }

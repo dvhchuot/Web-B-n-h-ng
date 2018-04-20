@@ -11,13 +11,13 @@ namespace WebNhom5.Controllers
     public class ProductsController : Controller
     {
         // GET: Products
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 12)
         {
 
 
             ProductDao productDao = new ProductDao();
 
-            return View(productDao.getListPaging(1, 12));
+            return View(productDao.getListPaging(page, pageSize));
         }
 
         

@@ -159,6 +159,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\IndexAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LayoutAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsAdminController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
@@ -171,29 +173,32 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Dao\AccountDao.cs" />
+    <Compile Include="Models\Dao\UsersDao.cs" />
     <Compile Include="Models\Dao\BillDao.cs" />
     <Compile Include="Models\Dao\Bill_DetailsDao.cs" />
     <Compile Include="Models\Dao\BrandDao.cs" />
     <Compile Include="Models\Dao\ColorDao.cs" />
-    <Compile Include="Models\Dao\CustomerDao.cs" />
-    <Compile Include="Models\Dao\DirectionDao.cs" />
     <Compile Include="Models\Dao\ProductDao.cs" />
     <Compile Include="Models\Dao\SaleDao.cs" />
     <Compile Include="Models\Dao\stypeDao.cs" />
-    <Compile Include="Models\Entitis\Account.cs" />
+    <Compile Include="Models\Entitis\AdminCreditAttribute.cs" />
     <Compile Include="Models\Entitis\Bill.cs" />
     <Compile Include="Models\Entitis\Bill_Details.cs" />
     <Compile Include="Models\Entitis\Brand.cs" />
     <Compile Include="Models\Entitis\CartItem.cs" />
     <Compile Include="Models\Entitis\Color.cs" />
     <Compile Include="Models\Entitis\Common.cs" />
-    <Compile Include="Models\Entitis\Customer.cs" />
-    <Compile Include="Models\Entitis\Direction.cs" />
+    <Compile Include="Models\Entitis\Credit.cs" />
+    <Compile Include="Models\Entitis\Group.cs" />
+    <Compile Include="Models\Entitis\GroupUser.cs" />
     <Compile Include="Models\Entitis\Product.cs" />
+    <Compile Include="Models\Entitis\Role.cs" />
+    <Compile Include="Models\Entitis\Rolename.cs" />
     <Compile Include="Models\Entitis\Sale.cs" />
     <Compile Include="Models\Entitis\ShopModel.cs" />
     <Compile Include="Models\Entitis\stype.cs" />
+    <Compile Include="Models\Entitis\sysdiagram.cs" />
+    <Compile Include="Models\Entitis\UserLogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -280,6 +285,9 @@
     <Content Include="Areas\Admin\Views\ProductsAdmin\index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_PartialCombobox.cshtml" />
     <Content Include="Areas\Admin\Views\ProductsAdmin\EditProducts.cshtml" />
+    <Content Include="Areas\Admin\Views\LoginAdmin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_PartialNavbarAdmin.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\404.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -321,6 +329,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Index\" />
+    <Folder Include="Areas\Admin\Views\LayoutAdmin\" />
     <Folder Include="Views\LayOut\" />
   </ItemGroup>
   <ItemGroup>

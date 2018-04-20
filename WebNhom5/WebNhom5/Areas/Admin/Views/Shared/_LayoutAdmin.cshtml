@@ -1,4 +1,4 @@
-﻿
+﻿@using WebNhom5.Models.Entitis;
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -30,7 +30,8 @@
         <div class="header">
             <div class="title"><a href="#">Panelo Admin</a></div>
 
-            <div class="header_right">Welcome Admin, <a href="#" class="settings">Settings</a> <a href="#" class="logout">Logout</a> </div>
+            <div class="header_right">Welcome @Session[CommonConstants.NameSession] <a href="#" class="settings">Settings</a> <a href="/Admin/LoginAdmin/LogoutAdmin" class="logout">Logout</a> </div>
+
             <div class="clear"></div>
             <div class="submenu">
 
@@ -44,22 +45,22 @@
                         @RenderBody()
 
 
-            <div class="clear"></div>
-            </div> <!--end of center_content-->
+                        <div class="clear"></div>
+                    </div> <!--end of center_content-->
 
 
-            </div>
-            <div class="sidebar" id="sidebar">
-                <h2>Danh sách các bảng</h2>
+                </div>
+                <div class="sidebar" id="sidebar">
+                    <h2>Danh sách các bảng</h2>
 
-                <ul>
-                    <li><a href="#" class="selected">Người dùng</a></li>
-                    <li><a href="#">Sản phâm</a></li>
-                    <li><a href="#">Danh mục sản phẩm</a></li>
+                    <ul>
+                        <li><a href="#" class="selected">Người dùng</a></li>
+                        <li><a href="#">Sản phâm</a></li>
+                        <li><a href="#">Danh mục sản phẩm</a></li>
 
-                </ul>
-            </div>
-            <div class="clear"></div>
+                    </ul>
+                </div>
+                <div class="clear"></div>
             </div>
         </div>
         </div>
